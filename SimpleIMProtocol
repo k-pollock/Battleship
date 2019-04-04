@@ -1,0 +1,56 @@
+import java.net.*;
+import java.io.*;
+
+public class SimpleIMProtocol {
+    private static final int WAITING = 0;
+    private static final int SENTMESSAGE = 1;
+
+    private static final int BOARD_SIZE = 5;
+    
+    private static final char HIT = 'X';
+    
+    private int board[][] = new int[BOARD_SIZE][BOARD_SIZE];
+    private int state = WAITING;
+    //board = new int[BOARD_SIZE][BOARD_SIZE];
+    
+    public void displayBoard() {
+        // -------------------------------------------------
+        // Displays the board.
+        // Precondition: None.
+        // Postcondition: Board is written to standard 
+        // output; zero is an EMPTY square, one is a square 
+        // containing a queen (QUEEN).
+        // -------------------------------------------------
+
+        for (int i = 0; i < BOARD_SIZE; i++)
+        {
+            for (int k = 0; k < BOARD_SIZE; k++)
+            {
+                if(board[i][k] == HIT)
+                    System.out.print("X");
+                else
+                    System.out.print("-");
+            }
+            System.out.println(" "); //after each row (8 characters) prints new line
+        }
+    } // end displayBoard
+
+    public String processInput(String theInput)
+    {
+        String theOutput = null;
+
+        /*if (state == WAITING)
+        {
+        theOutput = "Helloo?";
+        state = SENTMESSAGE;
+        }*/
+        if (state == WAITING)
+        {
+            theOutput = "Welcome to Battleship";
+            System.out.println(theOutput);
+            displayBoard();
+            state = SENTMESSAGE;
+        }
+        return theOutput;
+    }
+}
