@@ -35,7 +35,7 @@ import java.net.*;
 
 public class SimpleIMClient {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
- 
+
         if (args.length != 2) {
             System.err.println(
                 "Usage: java EchoClient <host name> <port number>");
@@ -56,7 +56,7 @@ public class SimpleIMClient {
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
         )
-         {
+        {
             BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
             String fromServer;
@@ -65,14 +65,14 @@ public class SimpleIMClient {
             // Client receives message from Server (Step 5)
             while ((fromServer = (String) in.readObject()) != null) {
                 // Print message from server (Step 6)
-                System.out.println("Server: " + fromServer);
+                System.out.println(fromServer);
                 //displayBoard(fromServer);
                 if (fromServer.equalsIgnoreCase("Bye."))
                     break;
                 System.out.print("You: ");
                 // Read response from client (Step 7)
                 fromUser = stdIn.readLine();
-
+                
                 if (fromUser != null) {
                     //System.out.println("Client: " + fromUser);
                     out.writeObject(fromUser);  // Sends response to server (Step 8)
@@ -87,8 +87,8 @@ public class SimpleIMClient {
             System.exit(1);
         }
     }
- 
-   public static String displayBoard(char[][] board){ 
+
+    public static String displayBoard(char[][] board){ 
         String actualBoard = "";  
         for (int i = 0; i < 6; i++) 
         {
