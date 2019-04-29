@@ -55,36 +55,28 @@ public class IMMultiServerThread extends Thread {
             String inputLine;
             String initboard = "";
             String client = "Client";
-            int coordinates;
+            String coordinates;
             int response = 0;
 
             // Initiate conversation with client
             Battleship IMp = new Battleship();
-            System.out.print("Server: ");
             initboard = IMp.processInput(null);
 
             out.writeObject(initboard);
 
             while ((inputLine = (String) in.readObject()) != null) {
-                // Get name of client
-                if (response == 0)
-                {
-                    client = inputLine;
-                    response++;
-                }
-
                 // Print message from client
                 System.out.println(client + ": " + inputLine);
                 if (inputLine.equals("Bye."))
                     break;
-
-                System.out.print("Server: ");
+ 
                 // Read response from server (Step 10)
-                coordinates = Integer.parseInt(stdIn.readLine());
+                coordinates = stdIn.readLine();
                 if(initboard != null)
                 {
                     //System.out.println("Server: " + outputLine);
-                    out.writeObject(initboard);                    
+                    //out.writeObject(initboard);
+                    IMp.processInput(coordinates);
                 }
                 if (initboard.equals("Bye"))
                     break;
