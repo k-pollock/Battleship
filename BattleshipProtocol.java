@@ -3,9 +3,13 @@ import java.io.*;
 
 public class Battleship implements Serializable {
     private static final int WAITING = 0;
-    private static final int SENTMESSAGE = 1;
+    private static final int SETBOARD = 1;
+    private static final int PLAYING = 2;
 
     private static final int BOARD_SIZE = 6;
+    
+    private static final String SET = "SET";
+    private static final String GUESS = "GUESS";
 
     private static final char MISS = '#';
     private static final char SHIP = 'O';
@@ -48,37 +52,26 @@ public class Battleship implements Serializable {
         }
     } // end setBoard
 
-    public void updateBoard(int col) {
+    public void updateBoard(int col, int row, String status) {
         // -------------------------------------------------
-        // Displays the board.
+        // Updates the board.
         // Precondition: None.
         // Postcondition: Board is written to standard 
         // output; zero is an EMPTY square, one is a square 
         // containing a queen (QUEEN).
         // -------------------------------------------------
-        char [] alpha = {'A','B','C','D','E'};
-        for (int i = 0; i < BOARD_SIZE; i++)
-        {
-            for (int k = 0; k < BOARD_SIZE; k++)
-            {
-                if (i == 0 && k == 0)
-                {
-                    board[i][k] = '*';
-                }
-                else if (i == 0)
-                {
-                    board[i][k] = alpha[k-1];
-                }
-                else if (k == 0)
-                {
-                    board[i][k] = (char) (i + '0');
-                }
-                else
-                    board[i][k] = OPEN; 
-                //System.out.print(board[i][k] + "  ");
-            }
-            //System.out.println(" "); //after each row (8 characters) prints new line
+        if (status == SET){
+            board[col][row] = SHIP;
         }
+        else if (status == GUESS){
+            if(board[col][row] == SHIP){
+                board[col][row] = HIT;
+            }
+            else if (board[col][row] == OPEN){
+                board[col][row] = MISS;
+            }
+        }
+        
     } // end displayBoard
 
     public String displayBoard(){
@@ -87,7 +80,7 @@ public class Battleship implements Serializable {
         {
             for (int k = 0; k < BOARD_SIZE; k++)
             {
-                actualBoard += board[i][k] + "  ";
+                actualBoard += board[i][k] + "  ";
             }
             actualBoard+="\n"; //after each row (8 characters) prints new line
         }
@@ -108,28 +101,36 @@ public class Battleship implements Serializable {
             board = "\n" + displayBoard();
             message2 = "\nPlease enter the locations you would like to place your three ships. \nEnter the location in the following format: \n Example: A1, B2, C3";                 
             System.out.println(message2);
-            state = SENTMESSAGE;   
+            state = SETBOARD;   
         }
-        else if (state == SENTMESSAGE)
+        else if (state == SETBOARD)
         {
             theInput = theInput.replaceAll("\\s","");
             theInput = theInput.replaceAll(",","");
-            
-            theInput = "A1A2A3";
+
+            //theInput = "A1A2A3";
             int col = 0;
             int row = 0;
-            
+
             for (int j = 0; j < theInput.length(); j+=2)
             {
                 char alpha = theInput.charAt(j);
                 col = convertAlpha(alpha);
                 row = theInput.charAt(j++);
-                updateBoard(col, row, SHIP);
+                updateBoard(col, row, SET);
             }
+        }
+        else if (state == PLAYING)
+        {
+            //take coordinates and see what happend
+            char alpha = theInput.charAt(0);
+            int col = convertAlpha(alpha);
+            int row = theInput.charAt(1);
+            updateBoard(col, row, GUESS);
         }
         return message + board + message2;
     }
-    
+
     private int convertAlpha(char alpha)
     {
         if (alpha == 'A')
@@ -152,5 +153,6 @@ public class Battleship implements Serializable {
         {
             return 5;
         }
+        return 0;
     }
 }
