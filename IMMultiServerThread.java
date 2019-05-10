@@ -89,10 +89,6 @@ public class IMMultiServerThread extends Thread {
                     System.out.println("Server: " + serverInput);
                     out.writeObject(board);
                 }
-                
-                
-                //if (board.equals("Bye"))
-                    //break;
             }
             socket.close(); 
         } catch (IOException e) {
