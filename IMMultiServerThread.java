@@ -80,7 +80,7 @@ public class IMMultiServerThread extends Thread {
                 coordinates = stdIn.readLine();
 
                 // If board is not null, processes coordinates taken as input
-                if(board != null)
+                if(coordinates != null)
                 {
                     serverInput = IMp.processInput(coordinates);
                     /*Can comment this out so doesnt just shut them out*/
