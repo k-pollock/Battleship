@@ -5,8 +5,10 @@ public class BattleshipProtocol implements Serializable {
     private static final int WAITING = 0;
     private static final int SETBOARD = 1;
     private static final int PLAYING = 2;
+    private static final int GAMEOVER = 3;
 
     private static final int BOARD_SIZE = 6;
+    private static final int SHIPNUM = 3;
 
     private static final String SET = "SET";
     private static final String GUESS = "GUESS";
@@ -15,6 +17,8 @@ public class BattleshipProtocol implements Serializable {
     private static final char SHIP = 'O';
     private static final char HIT = 'X';
     private static final char OPEN = '-';
+
+    private int count = 0;
 
     private char board[][] = new char[BOARD_SIZE][BOARD_SIZE];
     private int state = WAITING;
@@ -61,18 +65,35 @@ public class BattleshipProtocol implements Serializable {
         // containing a queen (QUEEN).
         // -------------------------------------------------
         if (status == SET){
-            board[col][row] = SHIP;
+            board[row][col] = SHIP;
         }
         else if (status == GUESS){
-            if(board[col][row] == SHIP){
-                board[col][row] = HIT;
+            if(board[row][col] == SHIP){
+                board[row][col] = HIT;
             }
-            else if (board[col][row] == OPEN){
-                board[col][row] = MISS;
+            else if (board[row][col] == OPEN){
+                board[row][col] = MISS;
             }
         }
 
     } // end displayBoard
+
+    public void checkBoard(){
+        int hits = 0;
+        for (int i = 0; i < BOARD_SIZE; i++)
+        {
+            for (int k = 0; k < BOARD_SIZE; k++)
+            {
+                if (board[i][k] == HIT)
+                {
+                    hits ++;
+                }
+                if (hits == 3){
+                    state = GAMEOVER;
+                }
+            }
+        }
+    }
 
     public String displayBoard(){
         String actualBoard = ""; 
@@ -86,6 +107,25 @@ public class BattleshipProtocol implements Serializable {
         }
         System.out.println(actualBoard);
         return actualBoard;
+    }
+
+    public String displayOtherBoard(char [][] board){
+        String otherBoard = ""; 
+        for (int i = 0; i < BOARD_SIZE; i++)
+        {
+            for (int k = 0; k < BOARD_SIZE; k++)
+            {
+                if (board[i][k] != SHIP){
+                    otherBoard += board[i][k] + "  ";
+                }
+                if (board[i][k] == SHIP){
+                    otherBoard += OPEN + "  ";
+                }
+            }
+            otherBoard+="\n"; //after each row (8 characters) prints new line
+        }
+        System.out.println(otherBoard);
+        return otherBoard;
     }
 
     public String processInput(String theInput)
@@ -120,19 +160,36 @@ public class BattleshipProtocol implements Serializable {
                 row = Character.getNumericValue(num);
                 updateBoard(col, row, SET);
             }
-            message = "This is your updated board";
-            message2 = "";
-            board = "\n" + displayBoard();
+            message = "This is your updated board\n";
+            message2 = "Take your shot";
+            System.out.println(message2);
+            board = displayBoard();
+            state = PLAYING;
         }
         else if (state == PLAYING)
         {
             //take coordinates and see what happened
             char alpha = theInput.charAt(0);
             int col = convertAlpha(alpha);
-            int row = theInput.charAt(1);
+            char num = theInput.charAt(1);
+            int row = Character.getNumericValue(num);
+
             updateBoard(col, row, GUESS);
+            message = "This is your updated board\n";
+            message2 = "Take your shot";
+            System.out.println(message2);
+            board = displayBoard();
+            checkBoard();
+            if (state == GAMEOVER){
+                System.out.println("YOU WIN");
+                message = "GAME OVER";
+                board = "";
+                message2 = "";
+                System.out.println("We have a winner! Say congrats");
+            }
         }
         return message + board + message2;
+
     }
 
     private int convertAlpha(char alpha)
