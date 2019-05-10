@@ -83,9 +83,9 @@ public class IMMultiServerThread extends Thread {
                 if(board != null)
                 {
                     serverInput = IMp.processInput(coordinates);
-                    //uncomment to just shut them out if they lose
-                    //if(serverInput.equals("GAME OVER"))
-                        //break;
+                    /*Can comment this out so doesnt just shut them out*/
+                    if(serverInput.equals("GAME OVER"))
+                        break;
                     System.out.println("Server: " + serverInput);
                     out.writeObject(board);
                 }
