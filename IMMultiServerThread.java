@@ -52,34 +52,44 @@ public class IMMultiServerThread extends Thread {
             BufferedReader stdIn =
                 new BufferedReader(new InputStreamReader(System.in));
             //Message inMessage = new Message();
-            String inputLine;
-            String initboard = "";
+            String clientInput;
+            String serverInput;
+            String board = "";
             String client = "Client";
             String coordinates;
             int response = 0;
 
             // Initiate conversation with client
             Battleship IMp = new Battleship();
-            initboard = IMp.processInput(null);
+            // Processes the input (initial)
+            board = IMp.processInput(null);
 
-            out.writeObject(initboard);
+            // Sends the initial input from server to client
+            out.writeObject(board);
 
-            while ((inputLine = (String) in.readObject()) != null) {
+            // While the object sent from client is not null
+            while ((clientInput = (String) in.readObject()) != null) {
                 // Print message from client
-                System.out.println(client + ": " + inputLine);
-                if (inputLine.equals("Bye."))
+                System.out.println(client + ": " + clientInput);
+
+                // Client breaks connection
+                if (clientInput.equals("Bye."))
                     break;
- 
+
                 // Read response from server (Step 10)
                 coordinates = stdIn.readLine();
-                if(initboard != null)
+
+                // If board is not null, processes coordinates taken as input
+                if(board != null)
                 {
-                    //System.out.println("Server: " + outputLine);
-                    //out.writeObject(initboard);
-                    IMp.processInput(coordinates);
+                    serverInput = IMp.processInput(coordinates);
+                    System.out.println("Server: " + serverInput);
+                    out.writeObject(board);
                 }
-                if (initboard.equals("Bye"))
-                    break;
+                
+                
+                //if (board.equals("Bye"))
+                    //break;
             }
             socket.close(); 
         } catch (IOException e) {
@@ -87,7 +97,7 @@ public class IMMultiServerThread extends Thread {
         }
         catch (ClassNotFoundException e)
         {
-          e.printStackTrace();
+            e.printStackTrace();
         }
     }
 }
