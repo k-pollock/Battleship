@@ -60,7 +60,7 @@ public class IMMultiServerThread extends Thread {
             int response = 0;
 
             // Initiate conversation with client
-            Battleship IMp = new Battleship();
+            BattleshipProtocol IMp = new BattleshipProtocol();
             // Processes the input (initial)
             board = IMp.processInput(null);
 
@@ -73,7 +73,7 @@ public class IMMultiServerThread extends Thread {
                 System.out.println(client + ": " + clientInput);
 
                 // Client breaks connection
-                if (clientInput.equals("Bye."))
+                if (clientInput.equals("congrats"))
                     break;
 
                 // Read response from server (Step 10)
@@ -83,6 +83,9 @@ public class IMMultiServerThread extends Thread {
                 if(board != null)
                 {
                     serverInput = IMp.processInput(coordinates);
+                    //uncomment to just shut them out if they lose
+                    //if(serverInput.equals("GAME OVER"))
+                        //break;
                     System.out.println("Server: " + serverInput);
                     out.writeObject(board);
                 }
