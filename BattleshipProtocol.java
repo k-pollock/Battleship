@@ -1,13 +1,13 @@
 import java.net.*;
 import java.io.*;
 
-public class Battleship implements Serializable {
+public class BattleshipProtocol implements Serializable {
     private static final int WAITING = 0;
     private static final int SETBOARD = 1;
     private static final int PLAYING = 2;
 
     private static final int BOARD_SIZE = 6;
-    
+
     private static final String SET = "SET";
     private static final String GUESS = "GUESS";
 
@@ -71,7 +71,7 @@ public class Battleship implements Serializable {
                 board[col][row] = MISS;
             }
         }
-        
+
     } // end displayBoard
 
     public String displayBoard(){
@@ -109,20 +109,24 @@ public class Battleship implements Serializable {
             theInput = theInput.replaceAll(",","");
 
             //theInput = "A1A2A3";
-            int col = 0;
+            int col = 0; 
             int row = 0;
 
-            for (int j = 0; j < theInput.length(); j+=2)
+            for (int j = 0; j < theInput.length(); j++)
             {
                 char alpha = theInput.charAt(j);
                 col = convertAlpha(alpha);
-                row = theInput.charAt(j++);
+                char num = theInput.charAt(++j);
+                row = Character.getNumericValue(num);
                 updateBoard(col, row, SET);
             }
+            message = "This is your updated board";
+            message2 = "";
+            board = "\n" + displayBoard();
         }
         else if (state == PLAYING)
         {
-            //take coordinates and see what happend
+            //take coordinates and see what happened
             char alpha = theInput.charAt(0);
             int col = convertAlpha(alpha);
             int row = theInput.charAt(1);
