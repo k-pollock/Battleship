@@ -11,24 +11,19 @@ public class IMMultiServerThread extends Thread {
 
     public void run() {
         try (
-        //PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-        //BufferedReader in = new BufferedReader(
-        //  new InputStreamReader(
-        //      socket.getInputStream()))
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream()); 
         ) {
             BufferedReader stdIn = 
                 new BufferedReader(new InputStreamReader(System.in));
+            //different arrays for client and server
             final char server = 'S';
             final char client = 'C';
             String clientInput;
             String cShot;
             String serverInput;
             String board = "";
-            //String client = "Client";
             String coordinates; 
-            int response = 0;
 
             // Initiate conversation with client
             BattleshipProtocol bp = new BattleshipProtocol();
@@ -39,11 +34,9 @@ public class IMMultiServerThread extends Thread {
 
             // While the object sent from client is not null
             while ((clientInput = (String) in.readObject()) != null)  { 
-                // Print message from client
-                //System.out.println(client + ": " + clientInput);
 
-                // Client breaks connection
-                if (clientInput.equals("congrats"))
+                // Client breaks connection when game is over
+                if (clientInput.equals("gg"))
                     break; 
 
                 // Update client board and send updated board to client
@@ -58,13 +51,7 @@ public class IMMultiServerThread extends Thread {
                 { 
                     // Update server board and print updated board on server side
                     serverInput = bp.processInput(coordinates, server);
-                    System.out.println(serverInput); 
-                    // 
-                    //out.writeObject(board);     
                 }    
-
-                //if (board.equals("Bye"))
-                //break; 
             }    
             socket.close(); 
         } catch (IOException e) {
