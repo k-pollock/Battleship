@@ -204,23 +204,23 @@ public class BattleshipProtocol implements Serializable {
 
     private int convertAlpha(char alpha)
     {
-        if (alpha == 'A') 
+        if (alpha == 'A' || alpha == 'a') 
         {
             return 1;
         }
-        else if (alpha == 'B')
+        else if (alpha == 'B' || alpha == 'b')
         {
             return 2;
         }
-        else if (alpha == 'C')
+        else if (alpha == 'C' || alpha == 'c')
         {
             return 3;
         }
-        else if (alpha == 'D')
+        else if (alpha == 'D' || alpha == 'd')
         {
             return 4;
         }
-        else if (alpha == 'E')
+        else if (alpha == 'E' || alpha == 'e')
         {
             return 5;
         }
