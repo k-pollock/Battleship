@@ -14,7 +14,7 @@ public class SimpleIMClient {
         int portNumber = Integer.parseInt(args[1]);
 
         try (
-        // inititate a connection request to server's IP address, port (Step 2)
+        // inititate a connection request to server's IP address, port 
         Socket socket = new Socket(hostName, portNumber);
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
@@ -22,31 +22,29 @@ public class SimpleIMClient {
         {
             BufferedReader stdIn = 
                 new BufferedReader(new InputStreamReader(System.in));
-            //final char client = 'C';
+
             String fromServer;
             String fromUser;
-            //String coordinates;
      
-            // Client receives message from Server (Step 5)
+            // Client receives message from Server 
             while ((fromServer = (String) in.readObject()) != null) {
-                // Print message from server 99(Step 6)
+                // Print message from server 
                 System.out.println(fromServer);
  
                 // Server breaks connection 
-                if (fromServer.equalsIgnoreCase("congrats"))
+                //will check for "good game" at end to disconnect
+                if (fromServer.equalsIgnoreCase("gg"))
                     break; 
 
-                //System.out.print("You: "); 
-                // Read response (coordinates) from client (Step 7)
+                // Read response (coordinates) from client 
                  fromUser = stdIn.readLine(); 
 
-                // If response is not null, send coordinates to Server
+                // If response is not null, then there is a message to send
                 if (fromUser != null) { 
-                    //fromUser = bp.processInput(coordinates, client);
-                    //System.out.println("Client: " + fromUser);
-                    out.writeObject(fromUser);  // Sends response to server (Step 8)
+                    out.writeObject(fromUser);  // Sends response to server
                 }
             }
+            //catch if unable to connect of connection breaks
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);
             System.exit(1);
