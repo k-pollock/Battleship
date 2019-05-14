@@ -2,7 +2,6 @@ import java.net.*;
 import java.io.*;
 
 public class BattleshipProtocol implements Serializable {
-    //Define different state options
     private static final int WAITING = 0;
     private static final int SETBOARD = 1;
     private static final int PLAYING = 2;
@@ -23,13 +22,6 @@ public class BattleshipProtocol implements Serializable {
     private int state = WAITING;
 
     public void setBoard(char board[][]) {
-        // -------------------------------------------------
-        // Displays the board.
-        // Precondition: None.
-        // Postcondition: Board is written to standard 
-        // output; zero is an EMPTY square, one is a square 
-        // containing a queen (QUEEN).
-        // -------------------------------------------------
         char [] alpha = {'A','B','C','D','E'};
         for (int i = 0; i < BOARD_SIZE; i++)
         {
@@ -48,21 +40,12 @@ public class BattleshipProtocol implements Serializable {
                     board[i][k] = (char) (i + '0');
                 }
                 else
-                    board[i][k] = OPEN; 
-                //System.out.print(board[i][k] + "  ");
+                    board[i][k] = OPEN;
             }
-            //System.out.println(" "); //after each row (8 characters) prints new line
         }
     } // end setBoard
 
     public String updateBoard(int col, int row, String status, char board[][]) {
-        // -------------------------------------------------
-        // Updates the board.
-        // Precondition: None.
-        // Postcondition: Board is written to standard 
-        // output; zero is an EMPTY square, one is a square 
-        // containing a queen (QUEEN).
-        // -------------------------------------------------
         String ship = "";
         if (status == SET){  
             board[row][col] = SHIP; 
@@ -137,17 +120,8 @@ public class BattleshipProtocol implements Serializable {
         {  
             message = "Welcome to Battleship! This is your board. \nYou have 3 ships for your battlefield.";
             System.out.println(message);
-            //board = "\n" + displayBoard(boardC); 
             setBoard(boardC); 
             setBoard(boardS);
-            /*if (end == 'C') 
-            {  
-            board = "\n" + displayBoard(boardC);
-            } 
-            else if (end == 'S')
-            {
-            board = "\n" + displayBoard(boardS);
-            }*/
             board = "\n" + displayBoard(boardC);
             message2 = "\nPlease enter the locations you would like to place your three ships. \nEnter the location in the following format: \n Example: A1, B2, C3";                 
             System.out.println(message2);
@@ -188,8 +162,7 @@ public class BattleshipProtocol implements Serializable {
             else if (end == 'S')
             {
                 board = getBoard(boardS);
-            } 
-            //state = PLAYING;
+            }
         }
         else if (state == PLAYING)
         {
@@ -220,8 +193,7 @@ public class BattleshipProtocol implements Serializable {
         {
             message = "GAME OVER";
             board = " ";
-            message2 = "Player 1 won! \nSay congrats";
-            //System.out.println(message + "\n" + message2);
+            message2 = "Player 1 won! \nSay GG";
         }
         if (what == "Hit" || what == "Miss")
         {
