@@ -2,6 +2,7 @@ import java.net.*;
 import java.io.*;
 
 public class BattleshipProtocol implements Serializable {
+    //Define different state options
     private static final int WAITING = 0;
     private static final int SETBOARD = 1;
     private static final int PLAYING = 2;
