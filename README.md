@@ -27,11 +27,12 @@ This system has two hosts, a server and a client
 ### Communication via Board Object
 * Each client will be able to see two boards, one will be where their own ships are located and if the client hit any, and the other will be their opponent's board so they can keep track of what spaces were a hit or a miss
 * The boards will be stored on the server as 2D arrays and updated when needed
-* Synchronization ADD THIS PART.... OWN HEADING????
 ### Application-Layer Protocols
 * What is the format and order of messages that hosts send to each other
 * TCP: we need reliable data transfer and we want our program to run similar to our lab assignments using the Socket class 
 * We will be sending each client’s 
+#### Synchronization
+* 
 
 
 ## User Manual
