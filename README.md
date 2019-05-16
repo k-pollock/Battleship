@@ -9,7 +9,7 @@ The goal of our system is to recreate the game battleship. This will be a strict
 ## Requirements
 Server              |    |Client
 ------------------  | -----|----------
-Establish Connection & send and display| --> |Content Cell
+Establish Connection & send and display prompt for ship [lacement | --> |Content Cell
 Content Cell        |     |Content Cell
 
 ## Design
