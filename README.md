@@ -49,7 +49,7 @@ To use our java application, if the server is already running and you know the p
 
 ### Initial Connection
 
-![Initial Message](/Images/Initial Message.png)
+![Initial Message](/Images/InitialMessage.png)
 
 ### Board Key
 Here is an example of the game in progess along with a key for the meaning of each symbol
