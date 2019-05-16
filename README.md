@@ -55,10 +55,10 @@ To use our java application, if the server is already running and you know the p
 Here is an example of the game in progess so you will know what each symbol means:
 Symbol|Meaning
 ------|------
--|Open: no ships or guesses
-O|Ship: not hit
-#|Miss: incorrect guess
-X|Hit: correct guess
+- | Open: no ships or guesses
+O | Ship: not hit
+# | Miss: incorrect guess
+X | Hit: correct guess
 
 
 ![Display](/Images/Board.png)
