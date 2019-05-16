@@ -49,10 +49,13 @@ To use our java application, if the server is already running and you know the p
 
 ### Initial Connection
 
+![Initial Message](/Images/Initial Message.png)
+
 ### Board Key
 Here is an example of the game in progess along with a key for the meaning of each symbol
 
-![Display](/Images/Display.png)
+![Display](/Images/Board.png)
+
 
 ## Testing
 
@@ -61,5 +64,5 @@ Here is an example of the game in progess along with a key for the meaning of ea
 If given more time, we would like to enhance our application by:
 1) Making different length ships to better recreat battleship and expand board size to accommodate
 2) Have two clients interact with eachother
-3) Show each user their opponent's board )without unhit ships of course) so they can keep track of previous guesses
+3) Show each user their opponent's board (without unhit ships of course) so they can keep track of previous guesses
 4) Store previous guesses and let the user guess again if they attempted to hit a spot they already selected
