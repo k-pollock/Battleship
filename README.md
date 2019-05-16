@@ -8,10 +8,10 @@ The goal of our system is to recreate the game battleship. This will be a strict
 
 ## Requirements
 Server              |    |Client
-------------------  | -----|----------
-Establish Connection & send and display board with prompt for ship placement | 1 --> |Board and Prompt
-Store ships in appropriate array| <-- 2|Input ship locaation
-Display & send updated board along with prompt for shot |--> 3 |Sees board and inputs guess
+------------------  | -------|----------
+Establish Connection & send and display board with prompt for ship placement |1 -->|Board and Prompt
+Store ships in appropriate array|<-- 2|Input ship locaation
+Display & send updated board along with prompt for shot |--> 3|Sees board and inputs guess
 
 ## Design
 This system has two hosts, a server and a client
