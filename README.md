@@ -20,6 +20,9 @@ Determines there is a winner (3 hits in an array), send game over message|7 -->|
 
 ## Design
 This system has two hosts, a server and a client. To avoid interference between clients on different games we used synchronization and the serializable class to send objects back and forth. To disconnect, a user can type "gg" meaning "good game" and the program will terminate.
+
+Since there are other features we would like to add, we made sure to keep our code as well documented as possible. We used final variables for aspects that will not be altered during program execution, but might be altered later when expanding the application (ex: board size and number of ships)
+
 ### 1. Server
 * Initiates the connection to each client and pairs two clients to a game
 * Welcomes user to game and then prompts user to place their pieces. Takes what each client inputs and stores it to send to the other client
