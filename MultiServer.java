@@ -5,7 +5,7 @@ public class MultiServer {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         if (args.length != 1) {
-           System.err.println("Usage: java IMMultiServer <port number>");
+           System.err.println("Usage: java MultiServer <port number>");
            System.exit(1);
         }
 
