@@ -40,7 +40,9 @@ This system has two hosts, a server and a client. To avoid interference between 
 
 
 ## User Manual
+Thank you for playing Battleship! Here you will find step-by-step instructions on how to use this application. Once you get the game running, the prompts assist you with your input so there is not too much to ellaborate on.
 
+####Connecting 
 ![Connection](/Images/Connecting.png)
 ![Display](/Images/Display.png)
 
