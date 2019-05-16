@@ -7,8 +7,10 @@ The goal of our system is to recreate the game battleship. This will be a strict
 
 
 ## Requirements
-ADD IMAGE OF THE THING WE DREW.. here or in different section... didnt have formal requirements for this one
-
+Server              | Client
+------------------  | -------------
+Content Cell           | Content Cell
+Content Cell        | Content Cell
 
 ## Design
 This system has two hosts, a server and a client
@@ -31,8 +33,6 @@ This system has two hosts, a server and a client
 * What is the format and order of messages that hosts send to each other
 * TCP: we need reliable data transfer and we want our program to run similar to our lab assignments using the Socket class 
 * We will be sending each client’s 
-#### Synchronization
-* 
 
 
 ## User Manual
