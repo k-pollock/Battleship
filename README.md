@@ -7,10 +7,10 @@ The goal of our system is to recreate the game battleship. This will be a strict
 
 
 ## Requirements
-Server              | Client
-------------------  | -------------
-Content Cell           | Content Cell
-Content Cell        | Content Cell
+Server              |    |Client
+------------------  | -----|----------
+Establish Connection & send and display| --> |Content Cell
+Content Cell        |     |Content Cell
 
 ## Design
 This system has two hosts, a server and a client
