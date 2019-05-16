@@ -14,7 +14,7 @@ Server sends their ship locations. Store ships in appropriate array|2 <--|Input 
 Display & send updated board along with prompt for a shot |3 -->|Sees their updated board
 Determines if hit or miss and updates array |4 <--|Inputs guess for oponent's ship location
 Sends message if hit or not and updated board. Server checks for winner |5 -->|Wait for server's guess
- |6 Repeat steps 3 - 6 until someone wins|
+||6 Repeat steps 3 - 6 until someone wins|
 Determines there is a winner (3 hits in an array), send game over message|7 -->|Recieve game over message
 
 ## Design
