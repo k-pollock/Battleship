@@ -4,12 +4,12 @@ Computer Networks Project 2019
 Progga Deb & Kayla Pollock
 
 ## Overview
-The goal of our system is to recreate the game battleship using a centralized server. This will be a strictly human vs. human game, with a server and a client interacting with each other. It will support multiple games to be executed simultaneously without interference. The server will create a thread for each game and maintain the multiple threads and different boards.
+The goal of our system is to recreate the game battleship using a centralized server. This will be a strictly human vs. human game, with a server and a client interacting with each other. It will support multiple games to be executed simultaneously without interference. The server will create a thread for each game and maintain the multiple threads and different boards. There are many improvements that can be made to this aplication outside of the scope of this project.
 
 
 ## Requirements
 Server              |    |Client
-------------------  | -------|----------
+------------------  | ---|----------
 Establish Connection & send and display board with prompt for ship placement |1 -->|Sees board and prompt
 Server sends their ship locations. Store ships in appropriate array|2 <--|Input ship locations 
 Display & send updated board along with prompt for a shot |3 -->|Sees their updated board
@@ -76,6 +76,11 @@ To test our connection we tried connecting to a port that was not running the se
 A lot of testing was needed in the beginning to make sure that the messages were being displayed on both sides and to make sure the program was entering the correct state for each user. We had some issues with our program returning to the "waiting" state after the user already set their board and were unsure why this was occurring. Through BlueJ's Debugging feature though, we were able to set a few breakpoints and resolve that issue.
 
 When selecting where a user would want to place their ships, and also where they would like to shoot their shot, we made sure to handle the input if a user were to use lowercase or upper case letters, spaces or no spaces, and commas or no commas to account for all of the different possibilities. 
+
+Our testing also revealed other minor issues that we would like to fix if given more time. For example, when selecting where the user wants to shoot and where they want to place their ships, if the input is not in the format char then int, an error is thrown so we would want to implement a try/catch block. 
+
+Through our testing we also realized that ideally, we would want to also validate the user's input. If a user previously guessed the location of a shot we would want to inform the user and promt the to guess again to make the game more fair, and we would want to ensure that when placing ships, three different locations are selected.
+
 
 ## Concluding Remarks
 Since the networking aspect and synchronization aspect of this project was our focus, there are still a lot of other areas we would like to improve on. If given more time, we would like to enhance our application by:
