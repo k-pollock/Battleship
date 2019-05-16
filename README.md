@@ -57,7 +57,8 @@ Here is an example of the game in progess so you will know what each symbol mean
 
 
 
-![Display](/Images/Board.png)Symbol|Meaning
+![Display](/Images/Board.png)
+Symbol|Meaning
 ------|------
 "-" | Open: no ships or guesses
 "O" | Ship: not hit
