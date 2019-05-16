@@ -48,6 +48,7 @@ To use our java application, if the server is already running and you know the p
 ![Connection](/Images/Connecting.png)
 
 ### Initial Connection
+Upon a successful connection on both the server and client side, each player will see the following message. If the connection failed, the game would not start and an error would occur
 
 ![Initial Message](/Images/InitialMessage.png)
 
