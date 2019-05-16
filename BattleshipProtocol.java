@@ -152,8 +152,6 @@ public class BattleshipProtocol implements Serializable {
     public String processInput(String theInput, char end) 
     { 
         String board = ""; 
-        //String boardC = "";
-        //String boardS = "";
         String message = "";
         String message2 = "";
         String what = "";
