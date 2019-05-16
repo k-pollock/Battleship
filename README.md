@@ -52,9 +52,7 @@ To use our java application, if the server is already running and you know the p
 ![Initial Message](/Images/InitialMessage.png)
 
 ### Board Key
-Here is an example of the game in progess so you will know what each symbol means:
-
-![Display](/Images/Board.png)
+Here is what each symbol means:
 
 Symbol|Meaning
 ------|------
@@ -62,6 +60,10 @@ Symbol|Meaning
 "O" | Ship: not hit
 "#" | Miss: incorrect guess
 "X" | Hit: correct guess
+
+Here is an image of the game in progress:
+
+![Display](/Images/Board.png)
 
 
 ## Testing
