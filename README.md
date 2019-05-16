@@ -74,10 +74,13 @@ Here is an example of a board when the game is in progress:
 ## Testing
 We tested our system by simply running the program multiple times, and by also using BlueJ's degbugging feature.
 
+### Connecting
 To test our connection we tried connecting to a port that was not running the server and that of course didn't work. We also tried to connect from a different computer, which was successful. Moving on to our actual application, we had to do a lot of testing throughout the development process to check how things were outputted and if the data was being sent back and forth properly. We had to check that the board was being stored for the right user, and of course make sure the user input was being interpreted and stored as it should. 
 
+### Changing States
 A lot of testing was needed in the beginning to make sure that the messages were being displayed on both sides and to make sure the program was entering the correct state for each user. We had some issues with our program returning to the "waiting" state after the user already set their board and were unsure why this was occurring. Through BlueJ's Debugging feature though, we were able to set a few breakpoints and resolve that issue.
 
+### Placing Ships
 When selecting where a user would want to place their ships, and also where they would like to shoot their shot, we made sure to handle the input if a user were to use lowercase or upper case letters, spaces or no spaces, and commas or no commas to account for all of the different possibilities. 
 
 Our testing also revealed other minor issues that we would like to fix if given more time. For example, when selecting where the user wants to shoot and where they want to place their ships, if the input is not in the format char then int, an error is thrown so we would want to implement a try/catch block. 
