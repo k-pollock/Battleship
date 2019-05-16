@@ -15,7 +15,7 @@ Display & send updated board along with prompt for a shot |3 -->|Sees their upda
 Determines if hit or miss and updates array |4 <--|Inputs guess for oponent's ship location
 Sends message if hit or not and updated board. Server checks for winner |5 -->|Wait for server's guess
 ||6 Repeat steps 3 - 6 until someone wins|
-Determines there is a winner (3 hits in an array), send game over message|7 -->|Recieve game over message
+Determines there is a winner (3 hits in an array), send game over message|7 -->|Recieve game over message & respond to end connection
 
 ## Design
 This system has two hosts, a server and a client
