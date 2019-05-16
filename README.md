@@ -19,7 +19,7 @@ Sends message if hit or not and updated board. Server checks for winner |5 -->|W
 Determines there is a winner (3 hits in an array), send game over message|7 -->|Recieve game over message & respond to end connection
 
 ## Design
-This system has two hosts, a server and a client. To avoid interference between clients on different games we used synchronization and the serializable class to send objects back and forth
+This system has two hosts, a server and a client. To avoid interference between clients on different games we used synchronization and the serializable class to send objects back and forth. To disconnect, a user can type "gg" meaning "good game" and the program will terminate.
 ### 1. Server
 * Initiates the connection to each client and pairs two clients to a game
 * Welcomes user to game and then prompts user to place their pieces. Takes what each client inputs and stores it to send to the other client
