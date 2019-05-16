@@ -42,8 +42,12 @@ This system has two hosts, a server and a client. To avoid interference between 
 ## User Manual
 Thank you for playing Battleship! Here you will find step-by-step instructions on how to use this application. Once you get the game running, the prompts assist you with your input so there is not too much to ellaborate on.
 
-####Connecting 
+#### Connecting 
+To use our java application, if the server is already running and you know the port and IP of where it is running, you can easily connect with just the client class. However, to use this application, we reccomend running both the server and the client. When running the server you need to pass the port number you want to use, and to run the client, you need to specify the IP along with the port you used for the server. Once the connection is established the game will begin.
+
 ![Connection](/Images/Connecting.png)
+
+
 ![Display](/Images/Display.png)
 
 ## Testing
