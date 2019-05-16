@@ -48,7 +48,7 @@ Since there are other features we would like to add, we made sure to keep our co
 Thank you for playing Battleship! Here you will find step-by-step instructions on how to use this application. Once you get the game running, the prompts assist you with your input so there is not too much to ellaborate on.
 
 ### Connecting 
-To use our java application, if the server is already running and you know the port and IP of where it is running, you can easily connect with just the client class. However, to use this application, we reccomend running both the server and the client. When running the server you need to pass the port number you want to use, and to run the client, you need to specify the IP along with the port you used for the server. Once the connection is established the game will begin.
+To use our java application, if the server is already running and you know the port and IP of where it is running, you can easily connect with just the client class. However, to use this application, we reccomend running both the server and the client. Multiple clients can also connect to the same server. When running the server you need to pass the port number you want to use, and to run the client, you need to specify the IP along with the port you used for the server. Once the connection is established the game will begin.
 
 ![Connection](/Images/Connecting.png)
 
@@ -88,7 +88,7 @@ Through our testing we also realized that ideally, we would want to also validat
 ## Concluding Remarks
 Since the networking aspect and synchronization aspect of this project was our focus, there are still a lot of other areas we would like to improve on. If given more time, we would like to enhance our application by:
 1) Making different length ships to better recreat battleship and expand board size to accommodate
-2) Have two clients interact with eachother
+2) Have two clients interact with eachother instead of server
 3) Show each user their opponent's board as well (without un-hit ships of course)
 4) Store previous guesses and let the user guess again if they attempted to hit a spot they already selected
 5) Improve the display of the program
