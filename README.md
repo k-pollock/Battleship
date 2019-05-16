@@ -3,10 +3,8 @@ Computer Networks Project 2019
 
 Progga Deb & Kayla Pollock
 
-
 ## Overview
 The goal of our system is to recreate the game battleship using a centralized server. This will be a strictly human vs. human game, with a server and a client interacting with each other. It will support multiple games to be executed simultaneously without interference. The server will create a thread for each game and maintain the multiple threads and different boards.
-
 
 
 ## Requirements
@@ -43,7 +41,6 @@ This system has two hosts, a server and a client. To avoid interference between 
 * TCP: we need reliable data transfer and we want our program to run similar to our lab assignments using the Socket class 
 
 
-
 ## User Manual
 Thank you for playing Battleship! Here you will find step-by-step instructions on how to use this application. Once you get the game running, the prompts assist you with your input so there is not too much to ellaborate on.
 
@@ -71,9 +68,7 @@ Here is an example of a board when the game is in progress:
 ![Display](/Images/Board.png)
 
 
-
 ## Testing
-
 
 
 ## Concluding Remarks
