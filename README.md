@@ -54,7 +54,7 @@ Upon a successful connection on both the server and client side, each player wil
 
 ![Initial Message](/Images/InitialMessage.png)
 
-### Board Key
+### Board Symbol Key
 
 Symbol|Meaning
 ------|------
@@ -69,11 +69,17 @@ Here is an example of a board when the game is in progress:
 
 
 ## Testing
+We tested our system by simply running the program multiple times, and by also using BlueJ's degbugging feature.
 
+To test our connection we tried connecting to a port that was not running the server and that of course didn't work. We also tried to connect from a different computer, which was successful. Moving on to our actual application, we had to do a lot of testing throughout the development process to check how things were outputted and if the data was being sent back and forth properly. We had to check that the board was being stored for the right user, and of course make sure the user input was being interpreted and stored as it should. 
+
+A lot of testing was needed in the beginning to make sure that the messages were being displayed on both sides and to make sure the program was entering the correct state for each user. We had some issues with our program returning to the "waiting" state after the user already set their board and were unsure why this was occurring. Through BlueJ's Debugging feature though, we were able to set a few breakpoints and resolve that issue.
+
+When selecting where a user would want to place their ships, and also where they would like to shoot their shot, we made sure to handle the input if a user were to use lowercase or upper case letters, spaces or no spaces, and commas or no commas to account for all of the different possibilities. 
 
 ## Concluding Remarks
-If given more time, we would like to enhance our application by:
+Since the networking aspect and synchronization aspect of this project was our focus, there are still a lot of other areas we would like to improve on. If given more time, we would like to enhance our application by:
 1) Making different length ships to better recreat battleship and expand board size to accommodate
 2) Have two clients interact with eachother
-3) Show each user their opponent's board (without unhit ships of course) so they can keep track of previous guesses
+3) Show each user their opponent's board as well (without un-hit ships of course)
 4) Store previous guesses and let the user guess again if they attempted to hit a spot they already selected
