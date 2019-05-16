@@ -41,7 +41,7 @@ This system has two hosts, a server and a client. To avoid interference between 
 
 ## User Manual
 
-
+![Display](/Images/Display.png)
 
 ## Testing
 
