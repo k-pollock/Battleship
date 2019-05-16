@@ -91,3 +91,4 @@ Since the networking aspect and synchronization aspect of this project was our f
 2) Have two clients interact with eachother
 3) Show each user their opponent's board as well (without un-hit ships of course)
 4) Store previous guesses and let the user guess again if they attempted to hit a spot they already selected
+5) Improve the display of the program
